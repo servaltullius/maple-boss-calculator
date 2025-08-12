@@ -14,7 +14,7 @@ body {
 }
 
 .container {
-    max-width: 1200px;
+    max-width: 1600px;
     margin: 0 auto;
     padding: 20px;
 }
@@ -43,10 +43,17 @@ header p {
 
 /* Main Content - 3 Column Layout */
 .three-column-layout {
-    display: grid;
-    grid-template-columns: 240px 1fr 280px;
+    display: grid !important;
+    grid-template-columns: 240px 1fr 280px !important;
     gap: 30px;
     min-height: 600px;
+    width: 100%;
+}
+
+@media (min-width: 1601px) {
+    .three-column-layout {
+        grid-template-columns: 240px 1fr 280px !important;
+    }
 }
 
 /* Panel Styles */
@@ -60,14 +67,17 @@ header p {
 }
 
 .left-panel {
+    grid-column: 1;
     /* 보스 선택, 파티원 정보 */
 }
 
 .center-panel {
+    grid-column: 2;
     /* 정산 항목 및 수수료 설정 */
 }
 
 .right-panel {
+    grid-column: 3;
     /* 결과 표시 */
 }
 
@@ -467,19 +477,20 @@ footer {
 /* Responsive Design */
 @media (max-width: 1400px) {
     .three-column-layout {
-        grid-template-columns: 220px 1fr 260px;
+        grid-template-columns: 220px 1fr 260px !important;
         gap: 20px;
     }
 }
 
 @media (max-width: 1200px) {
     .three-column-layout {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr !important;
         gap: 20px;
     }
     
     .left-panel, .center-panel, .right-panel {
         max-height: none;
+        grid-column: 1;
     }
 }
 
