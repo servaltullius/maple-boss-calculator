@@ -14,9 +14,67 @@ body {
 }
 
 .container {
-    max-width: 1600px;
+    max-width: 95vw;
     margin: 0 auto;
     padding: 20px;
+}
+
+/* 고해상도 전용 스타일 */
+@media (min-width: 1920px) {
+    .container {
+        max-width: 90vw;
+        padding: 25px;
+    }
+    
+    body {
+        font-size: 16px;
+    }
+    
+    h1 {
+        font-size: 2.8rem !important;
+    }
+    
+    h2 {
+        font-size: 1.8rem !important;
+    }
+}
+
+/* QHD 해상도 전용 */
+@media (min-width: 2560px) {
+    .container {
+        padding: 30px;
+    }
+    
+    body {
+        font-size: 18px;
+    }
+    
+    h1 {
+        font-size: 3.2rem !important;
+    }
+    
+    h2 {
+        font-size: 2rem !important;
+    }
+}
+
+/* 4K 해상도 전용 */
+@media (min-width: 3840px) {
+    .container {
+        padding: 40px;
+    }
+    
+    body {
+        font-size: 20px;
+    }
+    
+    h1 {
+        font-size: 4rem !important;
+    }
+    
+    h2 {
+        font-size: 2.5rem !important;
+    }
 }
 
 /* Header */
@@ -44,15 +102,33 @@ header p {
 /* Main Content - 3 Column Layout */
 .three-column-layout {
     display: grid !important;
-    grid-template-columns: 240px 1fr 280px !important;
+    grid-template-columns: 280px 1fr 320px !important;
     gap: 30px;
     min-height: 600px;
     width: 100%;
 }
 
-@media (min-width: 1601px) {
+/* FHD (1920x1080) 최적화 */
+@media (min-width: 1920px) {
     .three-column-layout {
-        grid-template-columns: 240px 1fr 280px !important;
+        grid-template-columns: 320px 1fr 360px !important;
+        gap: 40px;
+    }
+}
+
+/* QHD (2560x1440) 최적화 */
+@media (min-width: 2560px) {
+    .three-column-layout {
+        grid-template-columns: 400px 1fr 450px !important;
+        gap: 50px;
+    }
+}
+
+/* 4K (3840x2160) 최적화 */
+@media (min-width: 3840px) {
+    .three-column-layout {
+        grid-template-columns: 500px 1fr 550px !important;
+        gap: 60px;
     }
 }
 
