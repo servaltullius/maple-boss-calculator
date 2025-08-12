@@ -14,6 +14,21 @@
             <p>보스 파티 후 보상 분배 계산</p>
         </header>
 
+        <!-- 분배 계산 버튼 -->
+        <div class="floating-calculate-section">
+            <button id="calculate-btn" class="btn-primary btn-calculate">💰 분배 계산하기</button>
+            <div class="calculation-options">
+                <label>
+                    <input type="checkbox" id="round-down" checked> 
+                    100메소 단위 내림 처리
+                </label>
+                <label>
+                    <input type="checkbox" id="leader-remainder" checked>
+                    파티장이 나머지 메소 수령
+                </label>
+            </div>
+        </div>
+
         <main class="three-column-layout">
             <div class="left-panel">
                 <div class="boss-selector">
@@ -133,20 +148,6 @@
                     <div id="additional-items"></div>
                     <button id="add-item-btn" class="btn-secondary">+ 항목 추가</button>
 
-                    <!-- 계산 버튼 -->
-                    <div class="calculate-section">
-                        <button id="calculate-btn" class="btn-primary">💰 분배 계산하기</button>
-                        <div class="calculation-options">
-                            <label>
-                                <input type="checkbox" id="round-down" checked> 
-                                100메소 단위 내림 처리
-                            </label>
-                            <label>
-                                <input type="checkbox" id="leader-remainder" checked>
-                                파티장이 나머지 메소 수령
-                            </label>
-                        </div>
-                    </div>
                 </div>
             </div>
 
