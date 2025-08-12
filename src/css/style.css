@@ -102,7 +102,7 @@ header p {
 /* Main Content - 3 Column Layout */
 .three-column-layout {
     display: grid !important;
-    grid-template-columns: 350px 600px 480px !important;
+    grid-template-columns: 2fr 3fr 4fr !important;
     gap: 30px;
     min-height: 600px;
     width: 100%;
@@ -111,7 +111,7 @@ header p {
 /* FHD (1920x1080) 최적화 */
 @media (min-width: 1920px) {
     .three-column-layout {
-        grid-template-columns: 400px 700px 550px !important;
+        grid-template-columns: 2fr 3fr 4fr !important;
         gap: 40px;
     }
 }
@@ -119,7 +119,7 @@ header p {
 /* QHD (2560x1440) 최적화 */
 @media (min-width: 2560px) {
     .three-column-layout {
-        grid-template-columns: 480px 800px 650px !important;
+        grid-template-columns: 2fr 3fr 4fr !important;
         gap: 50px;
     }
 }
@@ -127,7 +127,7 @@ header p {
 /* 4K (3840x2160) 최적화 */
 @media (min-width: 3840px) {
     .three-column-layout {
-        grid-template-columns: 600px 1000px 800px !important;
+        grid-template-columns: 2fr 3fr 4fr !important;
         gap: 60px;
     }
 }
