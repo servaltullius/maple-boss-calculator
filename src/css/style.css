@@ -1,0 +1,478 @@
+/* 메이플스토리 보스 정산 분배기 스타일 */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header */
+header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 30px 0;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+}
+
+header h1 {
+    font-size: 2.5rem;
+    color: white;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+header p {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Main Content */
+main {
+    display: grid;
+    gap: 30px;
+}
+
+.calculator-section {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.calculator-section h2 {
+    color: #4a5568;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    border-bottom: 3px solid #667eea;
+    padding-bottom: 10px;
+}
+
+/* Form Controls */
+.form-control {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #e2e8f0;
+    border-radius: 10px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+    margin-bottom: 15px;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+/* Boss Selector */
+.boss-selector {
+    margin-bottom: 30px;
+}
+
+#boss-select {
+    background: white;
+    cursor: pointer;
+}
+
+/* Boss Selector Improvements */
+.boss-search-container {
+    margin-bottom: 15px;
+}
+
+.boss-filter-tabs {
+    display: flex;
+    gap: 5px;
+    margin-top: 10px;
+}
+
+.filter-tab {
+    padding: 8px 16px;
+    border: 2px solid #e2e8f0;
+    background: white;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.filter-tab.active {
+    background: #667eea;
+    color: white;
+    border-color: #667eea;
+}
+
+.filter-tab:hover {
+    border-color: #667eea;
+}
+
+.boss-info-display {
+    margin-top: 15px;
+    padding: 15px;
+    background: #f0f8ff;
+    border-radius: 10px;
+    border-left: 4px solid #667eea;
+}
+
+.boss-crystal-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.crystal-badge {
+    padding: 4px 8px;
+    border-radius: 15px;
+    font-size: 12px;
+    font-weight: bold;
+    color: white;
+}
+
+.crystal-badge.daily { background: #3b82f6; }
+.crystal-badge.weekly { background: #8b5cf6; }
+.crystal-badge.monthly { background: #f59e0b; }
+
+/* Party Members */
+.party-members {
+    margin-bottom: 30px;
+}
+
+.party-settings {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 20px;
+    padding: 15px;
+    background: #f7fafc;
+    border-radius: 10px;
+}
+
+.party-setting-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.party-setting-item label {
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: #4a5568;
+}
+
+#members-list {
+    margin-bottom: 20px;
+}
+
+.member-input {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 15px;
+    align-items: center;
+    margin-bottom: 15px;
+    padding: 15px;
+    background: #f7fafc;
+    border-radius: 10px;
+}
+
+.member-input label {
+    font-weight: 500;
+    color: #4a5568;
+}
+
+.member-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.member-input .form-control {
+    margin-bottom: 0;
+}
+
+/* Advanced Loot Input */
+.loot-input {
+    margin-bottom: 30px;
+}
+
+.loot-section {
+    margin-bottom: 25px;
+    padding: 20px;
+    background: #f7fafc;
+    border-radius: 15px;
+    border: 2px solid #e2e8f0;
+    transition: border-color 0.3s ease;
+}
+
+.loot-section:hover {
+    border-color: #667eea;
+}
+
+.loot-section h3 {
+    margin: 0 0 15px 0;
+    color: #4a5568;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.loot-item-advanced {
+    display: grid;
+    grid-template-columns: 1fr 1fr auto;
+    gap: 15px;
+    align-items: end;
+}
+
+.item-input, .item-price, .item-fee {
+    display: flex;
+    flex-direction: column;
+}
+
+.item-input label, .item-price label, .item-fee label {
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: #4a5568;
+    font-size: 0.9rem;
+}
+
+.item-fee {
+    min-width: 120px;
+}
+
+.item-fee input[type="number"] {
+    background: #fff5f5;
+    border-color: #fed7d7;
+}
+
+.item-fee input[type="number"]:focus {
+    border-color: #fc8181;
+    background: white;
+}
+
+.calculate-section {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.calculation-options {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.calculation-options label {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.9rem;
+    color: #4a5568;
+    cursor: pointer;
+}
+
+.calculation-options input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #667eea;
+}
+
+/* Legacy support */
+.loot-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.loot-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.loot-item label {
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #4a5568;
+}
+
+/* Buttons */
+.btn-primary, .btn-secondary {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+.btn-secondary {
+    background: #e2e8f0;
+    color: #4a5568;
+}
+
+.btn-secondary:hover {
+    background: #cbd5e0;
+    transform: translateY(-2px);
+}
+
+/* Results Section */
+.results-section {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.results-section h2 {
+    color: #4a5568;
+    margin-bottom: 25px;
+    font-size: 1.8rem;
+    text-align: center;
+}
+
+.total-summary {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 20px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 15px;
+    color: white;
+}
+
+.total-summary h3 {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+.total-value {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.distribution-results {
+    margin-bottom: 30px;
+}
+
+.member-result {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    align-items: center;
+    padding: 15px;
+    margin-bottom: 10px;
+    background: #f7fafc;
+    border-radius: 10px;
+    border-left: 4px solid #667eea;
+}
+
+.member-name {
+    font-weight: 500;
+    color: #4a5568;
+}
+
+.member-contribution {
+    color: #718096;
+    font-size: 0.9rem;
+}
+
+.member-reward {
+    font-weight: bold;
+    color: #667eea;
+    font-size: 1.1rem;
+}
+
+/* Chart */
+.chart-container {
+    position: relative;
+    height: 400px;
+    margin-top: 20px;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    margin-top: 40px;
+    padding: 20px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+    
+    header h1 {
+        font-size: 2rem;
+    }
+    
+    .member-input {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .loot-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .member-result {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 10px;
+    }
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.results-section {
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* Loading Animation */
+.loading {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255,255,255,.3);
+    border-radius: 50%;
+    border-top-color: #fff;
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
