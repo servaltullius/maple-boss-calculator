@@ -55,37 +55,6 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="party-members">
-                    <h2>👥 파티원 정보</h2>
-                    <div class="party-settings">
-                        <div class="party-setting-item">
-                            <label for="party-leader">파티장</label>
-                            <input type="text" id="party-leader" placeholder="파티장 닉네임" class="form-control">
-                        </div>
-                        <div class="party-setting-item">
-                            <label for="total-members">총 인원</label>
-                            <select id="total-members" class="form-control">
-                                <option value="1">1명 (솔플)</option>
-                                <option value="2">2명</option>
-                                <option value="3">3명</option>
-                                <option value="4">4명</option>
-                                <option value="5">5명</option>
-                                <option value="6" selected>6명</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div id="members-list">
-                        <div class="member-input">
-                            <label>파티원 1</label>
-                            <input type="text" placeholder="닉네임" class="member-name form-control">
-                            <div class="member-stats">
-                                <input type="number" placeholder="기여도 %" min="0" max="200" value="100" class="member-contribution form-control">
-                                <input type="number" placeholder="어드밴티지 %" min="-50" max="50" value="0" step="0.1" class="member-advantage form-control">
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
 
             <div class="center-panel">
@@ -182,20 +151,51 @@
             </div>
 
             <div class="right-panel">
-                <div class="results-section" id="results-section" style="display: none;">
-                <h2>분배 결과</h2>
-                <div class="total-summary">
-                    <h3>총 보상</h3>
-                    <div class="total-value" id="total-reward">0 메소</div>
-                </div>
-                
-                <div class="distribution-results" id="distribution-results">
-                    <!-- 분배 결과가 여기에 표시됩니다 -->
+                <div class="party-members">
+                    <h2>👥 파티원 정보</h2>
+                    <div class="party-settings">
+                        <div class="party-setting-item">
+                            <label for="party-leader">파티장</label>
+                            <input type="text" id="party-leader" placeholder="파티장 닉네임" class="form-control">
+                        </div>
+                        <div class="party-setting-item">
+                            <label for="total-members">총 인원</label>
+                            <select id="total-members" class="form-control">
+                                <option value="1">1명 (솔플)</option>
+                                <option value="2">2명</option>
+                                <option value="3">3명</option>
+                                <option value="4">4명</option>
+                                <option value="5">5명</option>
+                                <option value="6" selected>6명</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div id="members-list">
+                        <div class="member-input">
+                            <label>파티원 1</label>
+                            <input type="text" placeholder="닉네임" class="member-name form-control">
+                            <div class="member-stats">
+                                <input type="number" placeholder="기여도 %" min="0" max="200" value="100" class="member-contribution form-control">
+                                <input type="number" placeholder="어드밴티지 %" min="-50" max="50" value="0" step="0.1" class="member-advantage form-control">
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="chart-container">
-                    <canvas id="distribution-chart"></canvas>
-                </div>
+                <div class="results-section" id="results-section" style="display: none;">
+                    <h2>분배 결과</h2>
+                    <div class="total-summary">
+                        <h3>총 보상</h3>
+                        <div class="total-value" id="total-reward">0 메소</div>
+                    </div>
+                    
+                    <div class="distribution-results" id="distribution-results">
+                        <!-- 분배 결과가 여기에 표시됩니다 -->
+                    </div>
+
+                    <div class="chart-container">
+                        <canvas id="distribution-chart"></canvas>
+                    </div>
                 </div>
             </div>
         </main>
