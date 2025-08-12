@@ -485,6 +485,7 @@ const bossUtils = {
 
     // 보스 ID로 데이터 가져오기
     getBossById: function(bossId) {
+        // 기본 보스 데이터에서 찾기
         for (let category of Object.keys(bossData)) {
             if (bossData[category][bossId]) {
                 return {
@@ -494,6 +495,21 @@ const bossUtils = {
                 };
             }
         }
+
+        // 커스텀 보스에서 찾기
+        const customBosses = JSON.parse(localStorage.getItem('customBosses') || '[]');
+        const customBoss = customBosses.find(boss => boss.id === bossId);
+        if (customBoss) {
+            return {
+                id: customBoss.id,
+                category: 'custom',
+                name: customBoss.name,
+                type: customBoss.type,
+                crystal: customBoss.crystal.price,
+                isCustom: true
+            };
+        }
+
         return null;
     }
 };

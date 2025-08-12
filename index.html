@@ -14,8 +14,8 @@
             <p>보스 파티 후 보상 분배 계산</p>
         </header>
 
-        <main>
-            <section class="calculator-section">
+        <main class="three-column-layout">
+            <div class="left-panel">
                 <div class="boss-selector">
                     <h2>🎯 보스 선택</h2>
                     <div class="boss-search-container">
@@ -35,6 +35,23 @@
                             <span class="crystal-badge"></span>
                             <span class="crystal-amount"></span>
                             <span class="boss-type"></span>
+                        </div>
+                    </div>
+                    
+                    <div class="custom-boss-section">
+                        <button id="add-custom-boss" class="btn-secondary">+ 커스텀 보스 추가</button>
+                        <div id="custom-boss-form" style="display: none;" class="custom-form">
+                            <input type="text" id="custom-boss-name" placeholder="보스 이름" class="form-control">
+                            <select id="custom-boss-type" class="form-control">
+                                <option value="daily">일일 (파랑 크리스탈)</option>
+                                <option value="weekly">주간 (보라 크리스탈)</option>
+                                <option value="monthly">월간 (노랑 크리스탈)</option>
+                            </select>
+                            <input type="number" id="custom-boss-price" placeholder="크리스탈 가격 (메소)" class="form-control">
+                            <div class="custom-form-buttons">
+                                <button id="save-custom-boss" class="btn-primary">저장</button>
+                                <button id="cancel-custom-boss" class="btn-secondary">취소</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -64,18 +81,14 @@
                             <input type="text" placeholder="닉네임" class="member-name form-control">
                             <div class="member-stats">
                                 <input type="number" placeholder="기여도 %" min="0" max="200" value="100" class="member-contribution form-control">
-                                <select class="member-advantage form-control">
-                                    <option value="0">어드밴티지 없음</option>
-                                    <option value="5">어드밴티지 +5%</option>
-                                    <option value="10">어드밴티지 +10%</option>
-                                    <option value="-5">페널티 -5%</option>
-                                    <option value="-10">페널티 -10%</option>
-                                </select>
+                                <input type="number" placeholder="어드밴티지 %" min="-50" max="50" value="0" step="0.1" class="member-advantage form-control">
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
 
+            <div class="center-panel">
                 <div class="loot-input">
                     <h2>💰 정산 항목 및 수수료 설정</h2>
                     
@@ -166,9 +179,10 @@
                         </div>
                     </div>
                 </div>
-            </section>
+            </div>
 
-            <section class="results-section" id="results-section" style="display: none;">
+            <div class="right-panel">
+                <div class="results-section" id="results-section" style="display: none;">
                 <h2>분배 결과</h2>
                 <div class="total-summary">
                     <h3>총 보상</h3>
@@ -182,7 +196,8 @@
                 <div class="chart-container">
                     <canvas id="distribution-chart"></canvas>
                 </div>
-            </section>
+                </div>
+            </div>
         </main>
 
         <footer>

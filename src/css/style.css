@@ -41,17 +41,34 @@ header p {
     color: rgba(255, 255, 255, 0.9);
 }
 
-/* Main Content */
-main {
+/* Main Content - 3 Column Layout */
+.three-column-layout {
     display: grid;
+    grid-template-columns: 240px 1fr 280px;
     gap: 30px;
+    min-height: 600px;
 }
 
-.calculator-section {
+/* Panel Styles */
+.left-panel, .center-panel, .right-panel {
     background: white;
     border-radius: 20px;
-    padding: 30px;
+    padding: 20px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    overflow-y: auto;
+    max-height: 80vh;
+}
+
+.left-panel {
+    /* 보스 선택, 파티원 정보 */
+}
+
+.center-panel {
+    /* 정산 항목 및 수수료 설정 */
+}
+
+.right-panel {
+    /* 결과 표시 */
 }
 
 .calculator-section h2 {
@@ -126,6 +143,33 @@ main {
     background: #f0f8ff;
     border-radius: 10px;
     border-left: 4px solid #667eea;
+}
+
+/* Custom Boss Section */
+.custom-boss-section {
+    margin-top: 20px;
+    padding: 15px;
+    background: #f7fafc;
+    border-radius: 10px;
+    border: 2px dashed #cbd5e0;
+}
+
+.custom-form {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.custom-form-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+}
+
+.custom-form-buttons button {
+    padding: 8px 16px;
+    font-size: 14px;
 }
 
 .boss-crystal-info {
@@ -421,6 +465,24 @@ footer {
 }
 
 /* Responsive Design */
+@media (max-width: 1400px) {
+    .three-column-layout {
+        grid-template-columns: 220px 1fr 260px;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .three-column-layout {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .left-panel, .center-panel, .right-panel {
+        max-height: none;
+    }
+}
+
 @media (max-width: 768px) {
     .container {
         padding: 15px;
@@ -428,6 +490,14 @@ footer {
     
     header h1 {
         font-size: 2rem;
+    }
+    
+    .three-column-layout {
+        gap: 15px;
+    }
+    
+    .left-panel, .center-panel, .right-panel {
+        padding: 15px;
     }
     
     .member-input {

@@ -10,6 +10,7 @@ class BossDistributorApp {
     // 애플리케이션 초기화
     init() {
         this.loadBossData();
+        this.loadCustomBosses();
         this.setupEventListeners();
         this.loadSavedData();
         this.updatePartyMembersList();
@@ -66,6 +67,19 @@ class BossDistributorApp {
         // 항목 추가 버튼
         document.getElementById('add-item-btn').addEventListener('click', () => {
             this.addCustomItem();
+        });
+
+        // 커스텀 보스 관련 이벤트
+        document.getElementById('add-custom-boss').addEventListener('click', () => {
+            this.showCustomBossForm();
+        });
+
+        document.getElementById('save-custom-boss').addEventListener('click', () => {
+            this.saveCustomBoss();
+        });
+
+        document.getElementById('cancel-custom-boss').addEventListener('click', () => {
+            this.hideCustomBossForm();
         });
 
         // 계산 버튼
@@ -561,6 +575,81 @@ class BossDistributorApp {
 
             console.log('📱 저장된 데이터 복원 완료');
         }
+    }
+
+    // 커스텀 보스 관련 메소드들
+    showCustomBossForm() {
+        document.getElementById('custom-boss-form').style.display = 'block';
+        document.getElementById('add-custom-boss').style.display = 'none';
+    }
+
+    hideCustomBossForm() {
+        document.getElementById('custom-boss-form').style.display = 'none';
+        document.getElementById('add-custom-boss').style.display = 'block';
+        this.resetCustomBossForm();
+    }
+
+    resetCustomBossForm() {
+        document.getElementById('custom-boss-name').value = '';
+        document.getElementById('custom-boss-type').value = 'daily';
+        document.getElementById('custom-boss-price').value = '';
+    }
+
+    saveCustomBoss() {
+        const name = document.getElementById('custom-boss-name').value.trim();
+        const type = document.getElementById('custom-boss-type').value;
+        const price = parseInt(document.getElementById('custom-boss-price').value);
+
+        if (!name) {
+            alert('보스 이름을 입력하세요.');
+            return;
+        }
+
+        if (!price || price <= 0) {
+            alert('올바른 크리스탈 가격을 입력하세요.');
+            return;
+        }
+
+        // 커스텀 보스 객체 생성
+        const customBoss = {
+            id: `custom_${Date.now()}`,
+            name: name,
+            type: type,
+            crystal: {
+                price: price,
+                type: type
+            }
+        };
+
+        // localStorage에 커스텀 보스 저장
+        let customBosses = JSON.parse(localStorage.getItem('customBosses') || '[]');
+        customBosses.push(customBoss);
+        localStorage.setItem('customBosses', JSON.stringify(customBosses));
+
+        // 보스 목록에 추가
+        this.addBossToSelect(customBoss);
+        
+        // 폼 숨기기
+        this.hideCustomBossForm();
+        
+        // 성공 메시지
+        alert(`커스텀 보스 "${name}"이 추가되었습니다!`);
+    }
+
+    addBossToSelect(boss) {
+        const bossSelect = document.getElementById('boss-select');
+        const option = document.createElement('option');
+        option.value = boss.id;
+        option.textContent = `${boss.name} (커스텀 ${boss.type})`;
+        option.dataset.custom = 'true';
+        bossSelect.appendChild(option);
+    }
+
+    loadCustomBosses() {
+        const customBosses = JSON.parse(localStorage.getItem('customBosses') || '[]');
+        customBosses.forEach(boss => {
+            this.addBossToSelect(boss);
+        });
     }
 }
 
